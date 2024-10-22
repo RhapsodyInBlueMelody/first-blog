@@ -1,0 +1,39 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+ <div class="min-h-screen flex items-center justify-center my-8">
+   <div class="bg-slate-800 p-8 rounded-lg shadow-lg w-full max-w-4xl">
+    <h2 class="text-2xl font-bold text-white mb-4 text-center">New post</h2>
+    <form method="POST" class=" text-white">
+      {% csrf_token %}
+      {{ form.media }}
+     
+      <div class="grid grid-cols-2 gap-6">
+      <div class="col-span-1">
+        <label for="author" class="block mb-2 text-sm">Author: </label>
+        <div class="relative">
+      {{ form.author }}
+        </div>
+      </div>
+
+      <div class="col-span-1">
+        <label for="title" class="block mb-2 text-sm">Title:</label>
+        <div class="relative">
+          {{ form.title }}
+        </div>
+      </div>
+
+
+      <div class="col-span-2">
+        <label for="text" class="block mb-2 text-sm">Text:</label>
+          <div class="relative">
+      {{ form.text }}
+        </div>
+        </div>
+      </div>
+
+        <button type="submit" class="w-full mt-4rounded-lg bg-indigo-500 px-8 py-2">Save</button>
+    </form>
+   </div>
+ </div>
+{% endblock %}
