@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello, Welcome to my Website Page</title>
+<<<<<<< HEAD
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -12,6 +13,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="text/javascript">
 </script>
+=======
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+>>>>>>> 8ecfc099da341436772ec3d00d1f604513441539
 <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -46,12 +57,20 @@
   <div class="position-relative mb-5" id="home">
     <!--My Name Image-->
   <div class="d-none d-md-block">
+<<<<<<< HEAD
     <img class="fade-in-image img-fluid" src="images/FaizCanText .png" alt="FaizCan Text Image">
+=======
+    <img class="fade-in-image img-fluid" src="{% static 'images/FaizCanText .png' %}" alt="FaizCan Text Image">
+>>>>>>> 8ecfc099da341436772ec3d00d1f604513441539
   </div>
   <!--My Name Image End-->
   <!--Kafka Image-->
   <div class="rio position-absolute translate-middle-y d-none d-md-block">
+<<<<<<< HEAD
     <img src="images/kafka.png" alt="rio image" width="1280" height="720">
+=======
+    <img src="{% static 'images/kafka.png' %}" alt="rio image" width="1280" height="720">
+>>>>>>> 8ecfc099da341436772ec3d00d1f604513441539
   </div>
   <!--Kafka Image End-->
   <!--Nickname-->
@@ -62,7 +81,11 @@
   <!--Nickname End-->
   <!--Name Card-->
   <div class="overlay-object rounded d-none d-lg-block d-block mx-auto p-3">
+<<<<<<< HEAD
     <img src="images/foto.png" alt="myphoto" class="d-block rounded-circle photo m-3" width="152px">
+=======
+    <img src="{% static 'images/foto.png' %}" alt="myphoto" class="d-block rounded-circle photo m-3" width="152px">
+>>>>>>> 8ecfc099da341436772ec3d00d1f604513441539
     <div class="d-flex container mx-auto ">
       <div class="mx-auto row align-items-center">
       <a href="https://www.facebook.com/prince.nostal/" class="col m-1 btn bg-info text-light bi bi-facebook" target="_blank" rel="noopener noreferrer"></a>
@@ -139,6 +162,7 @@
   </div>
   <div class="row align-items-center d-flex justify-content-around flex-wrap">
     <a class=" rounded-pill col-3 d-flex justify-content-center">
+<<<<<<< HEAD
       <img src="images/Python.png"  alt="Python logo">
     </a>
 		<a class="prgmbrdr rounded-pill d-flex justify-content-center col-3 py-5">
@@ -159,6 +183,27 @@
     </a>
 		<a href="https://myacademy.oracle.com/lmt/clmsCertificate.prMain?in_sessionId=15153J88889A4831&in_learnerid=1498014561&in_language_id=id&in_region=id&in_lp_id=72453028&in_type=PDF" class=" d-flex justify-content-center rounded-pill  py-5 col-3" id="oracle" target="_blank" rel="noopener noreferrer">
       <img src="images/oracledatabase.png" alt="Oracle Database Logo">
+=======
+      <img src="{% static 'images/Python.png' %}"  alt="Python logo">
+    </a>
+		<a class="prgmbrdr rounded-pill d-flex justify-content-center col-3 py-5">
+      <img src="{% static 'images/c++.png' %}"  alt="C++ logo">
+    </a>
+		<a href="https://www.codepolitan.com/c/M3AW6PK/" class="d-flex py-5 justify-content-center rounded-pill col-3" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/JSLogo.png' %}"  alt="JavaScript Logo">
+    </a>
+		<a href="https://www.codepolitan.com/c/6TRDOWC/" class="rounded-pill py-5 d-flex justify-content-center col-3" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/html5.png' %}"  alt="HTML5 Logo">
+    </a>
+		<a href="https://www.codepolitan.com/c/AJ9BPUZ/" class=" d-flex  py-5 justify-content-center rounded-pill col-3" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/css.png' %}"  alt="CSS Logo">
+    </a>
+		<a href="https://www.codepolitan.com/c/JH9HUK4/" class=" d-flex  py-5 justify-content-center rounded-pill col-3" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/bslogo.png' %}"  alt="Bootstrap Logo">
+    </a>
+		<a href="https://myacademy.oracle.com/lmt/clmsCertificate.prMain?in_sessionId=15153J88889A4831&in_learnerid=1498014561&in_language_id=id&in_region=id&in_lp_id=72453028&in_type=PDF" class=" d-flex justify-content-center rounded-pill  py-5 col-3" id="oracle" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/oracledatabase.png' %}" alt="Oracle Database Logo">
+>>>>>>> 8ecfc099da341436772ec3d00d1f604513441539
     </a>
   </div>
   <div class="d-flex justify-content-center align-items-center mx-auto">  
