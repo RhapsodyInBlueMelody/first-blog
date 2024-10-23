@@ -7,7 +7,7 @@
   <title>Hello, Welcome to my Website Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&display=swap" rel="stylesheet">
@@ -48,9 +48,9 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">My Journal</a>
+            <a href="{% url 'post_list' %}" id="my-journal" class="rounded-md  px-3 py-2 text-sm font-medium text-white" aria-current="page">My Journal</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Achievements</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="{% url 'projects' %}" id="projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
           </div>
         </div>
@@ -92,15 +92,15 @@
   <div class="sm:hidden hidden" role="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">My Journal</a>
+      <a href="{% url 'post_list' %}" id="my-journal" class="block rounded-md px-3 py-2 text-base font-medium text-white" aria-current="page">My Journal</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Achievements</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+      <a href="{% url 'projects' %}" id="projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
     </div>
   </div>
 </nav>
-<main class="container justify-center">
-  <div class="flex flex-col">
+<main class="min-h-screen flex items-center justify-center">
+  <div class="flex flex-col w-9/12">
     {% block content %}
     {% endblock %}
   </div>
