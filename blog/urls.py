@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+        path('projects/', views.projects, name='projects'),
+        path('', views.post_list, name='post_list'),
         path('', views.index, name='index'),
         path('post/<int:pk>/', views.post_detail, name='post_detail'),
         path('ckeditor/', include('ckeditor_uploader.urls')),
