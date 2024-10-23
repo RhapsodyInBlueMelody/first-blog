@@ -71,6 +71,26 @@ TEMPLATES = [
     },
 ]
 
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Image', 'Table'],
+            ['Undo', 'Redo'],
+            ['Source'],
+        ],
+        'extraPlugins': 'alignment',  # Enable the alignment plugin
+        'height': 300,
+    },
+}
+
+
+
+
 WSGI_APPLICATION = "mysite.wsgi.application"
 
 
@@ -102,6 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
 
 
 # Internationalization
