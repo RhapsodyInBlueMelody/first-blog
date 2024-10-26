@@ -6,9 +6,13 @@ from .forms import PostForm
 # Create your views here.
 
 
+def about_me(request):
+    return render(request, 'blog/about_me.html')
+
+
 def projects(request):
     username = "RhapsodyInBlueMelody"
-    url = f"https://api.github.com/users/{ username }/repos"
+    url = f"https://api.github.com/users/{username}/repos"
     response = req.get(url)
     repos = response.json()
 
@@ -58,3 +62,7 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+
+def post_list_container(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list_container.html', {'posts': posts})

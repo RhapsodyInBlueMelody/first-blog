@@ -1,11 +1,7 @@
-{% extends 'blog/index.html' %}
+
 
 {% load custom_filters %}
 
-{% load static %}
-
-{% block content %}
-    <h1 class="title antialiased my-12  floatting text-4xl text-white font-extrabold text-center">What Would you like to read today?<h1>
     {% for post in posts %}
     <article class="boxList antialiased bg-white p-6 rounded-lg shadow-lg my-6 mx-8">
         <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2> 
@@ -25,4 +21,3 @@
       <p class="text-center text-gray-500">No posts available.</p>
     </div>
     {% endfor %}
-{% endblock %}
