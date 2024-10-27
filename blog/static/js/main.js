@@ -24,22 +24,21 @@ aboutMeTab.addEventListener('click',() => {
   updateTabs();
 }) 
 
-
     
 function updateTabs() {
     const activeTab = localStorage.getItem('activeTab');
     if (activeTab === 'myJournal') {
-        myJournalTab.classList.add('bg-gray-900');
-        projectsTab.classList.remove('bg-gray-900');
-        aboutMeTab.classList.remove('bg-gray-900');
+        myJournalTab.classList.add('bg-purple-400');
+        projectsTab.classList.remove('bg-purple-400');
+        aboutMeTab.classList.remove('bg-purple-400');
     } else if (activeTab === 'projects') {
-        myJournalTab.classList.remove('bg-gray-900');
-        projectsTab.classList.add('bg-gray-900');
-        aboutMeTab.classList.remove('bg-gray-900');
+        myJournalTab.classList.remove('bg-purple-400');
+        projectsTab.classList.add('bg-purple-400');
+        aboutMeTab.classList.remove('bg-purple-400');
     } else if (activeTab === 'aboutMe') {
-        myJournalTab.classList.remove('bg-gray-900');
-        aboutMeTab.classList.add('bg-gray-900');
-        projectsTab.classList.remove('bg-gray-900');
+        myJournalTab.classList.remove('bg-purple-400');
+        aboutMeTab.classList.add('bg-purple-400, bg-opacity-');
+        projectsTab.classList.remove('bg-purple-400');
     }
 }
 

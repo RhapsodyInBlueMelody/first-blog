@@ -56,7 +56,30 @@ anime({
     duration: 800,
     loop: false
 });
+
 }
+function logoAnimation() {
+  anime({
+    targets: '#swifticon',
+    opacity: 1,
+    translateX: [500, 0],
+    easings: 'easeInOutCirc',
+    delay: anime.stagger(200, {start: 5000}),
+    complete: function(){
+
+    }
+  })
+}
+
+function TextName(){
+  anime({
+    targets: '.my-name',
+    opacity: 1,
+    easings: 'easeInOutCirc',
+    delay: anime.stagger(500,{start: 100})
+  })
+}
+
 
 function runAnimations(){
   animateFloating();
@@ -64,13 +87,16 @@ function runAnimations(){
   animateLine();
   animateBoxProject();
   animateTitleProject();
+  logoAnimation();
+  TextName();
 }
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
     // Set an animation flag to prevent overlapping animations
     let isAnimating = false;
-
     // Add a common click event listener to all <a> tags with hx-get attributes
     document.querySelectorAll('a[hx-get]').forEach(link => {
         link.addEventListener('click', function(event) {
@@ -78,15 +104,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 event.preventDefault();
                 return;
             }
-            
             isAnimating = true;
-
             // Fade out the existing content
             anime({
                 targets: '#contentContainer',
                 opacity: 0,
-                translateY: 20,
-                duration: 500,
+                translateY: 200,
+                duration: 200,
                 easing: 'easeInOutQuad',
                 complete: function() {
                     // Trigger the HTMX request
@@ -103,11 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.addEventListener('htmx:afterSwap', function() {
         const newContent = document.querySelector('#contentContainer');
         isAnimating = false;
-        // Reset new content's style for fade-in animation
-        newContent.style.opacity = 0;
-        newContent.style.transform = 'translateY(20px)';
-        runAnimations()
-        // Fade in the new content
         anime({
             targets: newContent,
             opacity: 1,
@@ -118,6 +137,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 isAnimating = false; // Reset the animation flag after fade-in
             }
         });
+        // Reset new content's style for fade-in animation
+        newContent.style.opacity = 0;
+        newContent.style.transform = 'translateY(20px)';
+        runAnimations()
+        // Fade in the new content
     });
 });
 

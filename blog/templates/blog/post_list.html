@@ -5,24 +5,27 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="title antialiased my-12  floatting text-4xl text-white font-extrabold text-center">What Would you like to read today?<h1>
+    <h1 class="font-brunoace title antialiased my-12  floatting text-4xl text-white font-extrabold text-center">What Would you like to read today?<h1>
+<div class="grid gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {% for post in posts %}
-    <article class="boxList antialiased bg-white p-6 rounded-lg shadow-lg my-6 mx-8">
-        <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2> 
-        {% if post.published_date %}
-          <div> Published: 
-            <time class="time">
-                {{ post.published_date }}
-            </time
+    <article class="boxList text-white shadow-lg ring-1 ring-black/5 border-r-2 border-b-2 p-6 rounded-lg my-6 mx-8 relative bg-white/20 backdrop-blur-lg">
+        <div class="absolute -top-6 left-0 w-48 h-6 rounded-t-md border-t border-l border-r">
+            <h2 class="text-xl font-bold pl-5 mb-2">{{ post.title }}</h2>
+        </div>
+        <div class="mt-5 space-y-5 text-left flex flex-col h-full">
+            <p class="flex-grow">{{ post.text|truncate_text:100 }}...</p>
+            <div class="text-right">
+                <a href="{% url 'post_detail' post.pk %}" class="text-indigo-300 hover:underline">More</a>
             </div>
+        </div>
+        {% if post.published_date %}
+        <div class="font-bold text-xs absolute bottom-4 left-4"> 
+            Published: <time class="time">{{ post.published_date }}</time>
+        </div>
         {% endif %}
-        <div class="my-5">
-        <p class="text-gray-700">{{ post.text|truncate_text:100  }}</p>
-        <a href="{% url 'post_detail' post.pk %}" class="text-indigo-600 hover:underline">Read more</a>
-        <div>
-      </article>
+    </article>
     {% empty %}
-      <p class="text-center text-gray-500">No posts available.</p>
-    </div>
+    <p class="text-center text-gray-500">No posts available.</p>
     {% endfor %}
+</div>
 {% endblock %}

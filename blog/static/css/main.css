@@ -551,7 +551,7 @@ video {
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 [hidden]:where(:not([hidden="until-found"])) {
-  display: none;  
+  display: none;
 }
 
 .boxList {
@@ -567,6 +567,15 @@ video {
   opacity: 0; 
 }
 
+#swifticon {
+  opacity: 0;
+}
+
+.my-name {
+  opacity: 0;
+}
+
+
 .svg-container {
  width: 100%; /* Matches the width of the column */
  max-width: 1020px; /* Adjust this max width to your column's max size */
@@ -576,3 +585,4 @@ svg {
     width: 100%;
     height: auto;
 }
+
