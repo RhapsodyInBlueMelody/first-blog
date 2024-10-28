@@ -1,5 +1,8 @@
 import anime from './anime.es.js';
 
+window.addEventListener('load',function() {
+articleContent();
+});
 
 function animateFloating() {
 anime({
@@ -20,7 +23,7 @@ anime({
   opacity: 1,
   translateY: [100, 0],
   delay: anime.stagger(500, {start: 100}),
-  duration: 5000,
+  duration: 1000,
   easings: 'easeOutExpo'
 });
 }
@@ -78,6 +81,42 @@ function TextName(){
     easings: 'easeInOutCirc',
     delay: anime.stagger(500,{start: 100})
   })
+}
+
+
+
+function articleContent(){
+  anime({
+    targets: '.contentArticle',
+    opacity: 1,
+    translateY: [300, 0],
+    easing: 'easeInOutCirc',
+    duration: 1000,
+  })
+  anime({
+    targets: '.return-arrow',
+    opacity: 1,
+    translateX: [700, 0],
+    easing: 'easeInOutQuad',
+    delay: 1000,
+    duration: 500,
+  });
+  anime({
+    targets: '.return-text',
+    opacity: 1,
+    translateX: [-50, 0],
+    easing: 'easeInOutQuad',
+    delay: 1500,
+    duration: 200,
+  });
+  anime({
+    targets: '.shine-overlay',
+    translateX: ['-100%', '100%'], // Move overlay from left to right
+    opacity: [0, 0.6, 0], // Fade in and out
+    easing: 'easeInOutSine',
+    delay: 1000,
+    duration: 1500,
+  });
 }
 
 

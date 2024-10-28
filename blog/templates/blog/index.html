@@ -3,7 +3,6 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta http-equipv="Cache-control" content="no-cache, no-store, must-revalidate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +13,12 @@
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script type="module" src="{% static 'js/anime.js' %}"></script>
-  <script type="module" src="{% static 'js/main.js' %}"></script>
+  <script type="module" src="{% static 'js/anime.js' %}?v={{ STATIC_VERSION }}"></script>
+  <script type="module" src="{% static 'js/main.js' %}?v={{ STATIC_VERSION }}"></script>
   <script src="https://unpkg.com/htmx.org@1.7.0"></script>
   </head>
 <body class="min-h-screen bg-gradient-to-bl antialiased from-slate-900 from-10% via-purple-950 to-50% to-slate-900 " >
-  <nav class="bg-white sticky top-0 z-40 w-full backdrop-filter backdrop-blur bg-opacity-30  border-b border-gray-200 firefox:bg-opacity-90">
+  <nav id="navbar" class="bg-white sticky top-0 z-40 w-full backdrop-filter backdrop-blur bg-opacity-30  border-b border-gray-200 firefox:bg-opacity-90">
 
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
@@ -99,10 +98,10 @@
   <div class="sm:hidden hidden" role="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="{% url 'post_list' %}" id="my-journal" class="block rounded-md px-3 py-2 text-base font-medium text-white" aria-current="page">My Journal</a>
+      <a href="#" hx-get="{% url 'post_list_container' %}" hx-target="#contentContainer" hx-trigger="click"  id="my-journal" class="block rounded-md px-3 py-2 text-base font-medium text-white" >My Journal</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Achievements</a>
-      <a href="{% url 'projects' %}" id="projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-      <a href="{% url 'about_me' %}" id="aboutMe" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
+      <a href="{% url 'projects' %}" hx-get="{% url 'projects' %}" hx-target="#contentContainer" hx-trigger="click" id="projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+      <a href="{% url 'about_me' %}"  hx-get="{% url 'about_me' %}" hx-target="#contentContainer" hx-trigger="click" id="aboutMe" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
     </div>
   </div>
 </nav>
@@ -112,7 +111,23 @@
     {% endblock %}
   </div>
 </main>
+  <script>
+    function handleNavbarDisplay() {
+            // Check if the current URL path matches the article page URL pattern
+            const currentPath = window.location.pathname;
+            const navbar = document.getElementById('navbar');
 
+            // Assuming the article page URLs start with `/post/`, adjust as needed
+            if (currentPath.startsWith('/post/')) {
+                navbar.style.display = 'none'; // Hide navbar on article page
+            } else {
+                navbar.style.display = ''; // Show navbar on other pages
+            }
+        }
+
+        // Run this function when the page loads
+        document.addEventListener('DOMContentLoaded', handleNavbarDisplay);
+  </script>
   <script type="module" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

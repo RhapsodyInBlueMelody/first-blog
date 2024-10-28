@@ -586,3 +586,26 @@ svg {
     height: auto;
 }
 
+.return-arrow{
+  opacity: 0;
+}
+
+.return-text {
+  opacity: 0;
+}
+
+.content-article {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-overlay {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen */
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    filter: blur(8px);
+}
+
