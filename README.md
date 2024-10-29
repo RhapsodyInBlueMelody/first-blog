@@ -8,4 +8,7 @@
   <li>Tailwind CSS</li>
 </ul>
 
+come check it out ^_^
+<a>https://faizcan.pythonanywhere.com/</a>
+
 ![image](https://github.com/user-attachments/assets/25af8c9f-73f3-42a2-a08d-d4356d72e2ab)
