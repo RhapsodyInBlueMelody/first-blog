@@ -10,6 +10,7 @@ urlpatterns = [
         path('', views.index, name='index'),
         path('post/<int:pk>/', views.post_detail, name='post_detail'),
         path('ckeditor/', include('ckeditor_uploader.urls')),
+        path('post/<int:pk>/edit', views.post_edit, name='post_edit'),
         path('post/new/', views.post_new, name='post_new'),
         path('about_me/', views.about_me, name='about_me'),
         path('home/', views.post_list_container, name='post_list_container'),
