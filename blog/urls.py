@@ -14,4 +14,6 @@ urlpatterns = [
         path('post/new/', views.post_new, name='post_new'),
         path('about_me/', views.about_me, name='about_me'),
         path('home/', views.post_list_container, name='post_list_container'),
+        path('calculator/', views.calculator, name='calculator'),
+        path('achievements/', views.achievements, name='achievements')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

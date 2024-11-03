@@ -4,17 +4,15 @@ window.addEventListener('load',function() {
 articleContent();
 });
 
-function animateFloating() {
+function animateTitleBlog() {
 anime({
-  targets: '.floatting',
-  translateY: [5, -5],
-  delay: 100,
+  targets: '.titleFloat',
+  translateY: [-200, 0],
   easing: 'easeInOutQuad',
-  direction: 'alternate',
-  duration: 600,
-  loop: true,
+  duration: 500,
 })
 }
+
 
 
 function animateBoxList() {
@@ -22,13 +20,12 @@ anime({
   targets: '.boxList',
   opacity: 1,
   translateY: [100, 0],
-  delay: anime.stagger(500, {start: 100}),
-  duration: 1000,
+  delay: anime.stagger(100, {start: 100}),
   easings: 'easeOutExpo'
 });
 }
 
-animateFloating();
+animateTitleBlog();
 animateBoxList();
 
 function animateBoxProject() {
@@ -61,26 +58,56 @@ anime({
 });
 
 }
-function logoAnimation() {
+function AboutPageAnimation() {
+  document.querySelectorAll('#swifticon').forEach(img => img.style.opacity = 0)
+  document.querySelectorAll('#nickname').forEach(element => element.style.color = '#FFFFFF')
   anime({
     targets: '#swifticon',
     opacity: 1,
     translateX: [500, 0],
     easings: 'easeInOutCirc',
     delay: anime.stagger(200, {start: 5000}),
-    complete: function(){
+  });
 
-    }
-  })
-}
-
-function TextName(){
   anime({
     targets: '.my-name',
     opacity: 1,
     easings: 'easeInOutCirc',
-    delay: anime.stagger(500,{start: 100})
+    delay: anime.stagger(500,{start: 500})
   })
+
+  anime({
+    targets: '#profilepic',
+    opacity: [0, 0.5],
+    easing: 'easeInOutQuad',
+    duration: 1000
+  })
+
+  anime({
+    targets: '#nickname',
+    color: "#FF10F0",
+    easing: "easeInOutQuad",
+    delay: 6000,
+  })
+  
+  anime({
+    targets: '.contentArticle',
+    opacity: 1,
+    translateX: [300, 0],
+    easing: 'easeInOutCirc',
+    delay: 5000,
+  })
+
+  anime({
+    targets: '.shine-overlay',
+    translateX: ['-100%', '100%'], // Move overlay from left to right
+    opacity: [0, 0.6, 0], // Fade in and out
+    easing: 'easeInOutSine',
+    delay: 6500,
+    duration: 1000,
+  });
+
+
 }
 
 
@@ -121,13 +148,12 @@ function articleContent(){
 
 
 function runAnimations(){
-  animateFloating();
+  animateTitleProject();
   animateBoxList();
   animateLine();
   animateBoxProject();
   animateTitleProject();
-  logoAnimation();
-  TextName();
+  AboutPageAnimation();
 }
 
 

@@ -554,6 +554,8 @@ video {
   display: none;
 }
 
+
+
 .boxList {
   opacity: 0;
 }
@@ -594,6 +596,10 @@ svg {
   opacity: 0;
 }
 
+.contentArticle {
+  opacity: 0;
+}
+
 .content-article {
     position: relative;
     overflow: hidden;
@@ -608,4 +614,13 @@ svg {
     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     filter: blur(8px);
 }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+
 

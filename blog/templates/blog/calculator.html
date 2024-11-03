@@ -1,0 +1,62 @@
+{% load static %}
+
+
+{% block content %}
+
+
+<main class="h-screen flex items-center justify-center">
+
+    <div class="glass p-10 w-96">
+        <table id="calcu" class="w-full table-fixed">
+            <tr>
+                <td colspan="3"><input type="text" id="result" class="border-none w-full h-12 text-2xl text-center rounded-lg" readonly></td>
+                <td><input type="button" value="c" class="border-none bg-red-500 text-white rounded-lg p-3" onclick="clr()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('1')"></td>
+                <td><input type="button" value="2" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('2')"></td>
+                <td><input type="button" value="3" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('3')"></td>
+                <td><input type="button" value="/" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('4')"></td>
+                <td><input type="button" value="5" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('5')"></td>
+                <td><input type="button" value="6" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('6')"></td>
+                <td><input type="button" value="*" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('7')"></td>
+                <td><input type="button" value="8" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('8')"></td>
+                <td><input type="button" value="9" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('9')"></td>
+                <td><input type="button" value="-" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('0')"></td>
+                <td><input type="button" value="." class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('.')"></td>
+                <td><input type="button" value="=" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="solve()"></td>
+                <td><input type="button" value="+" class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4" onclick="dis('+')"></td>
+            </tr>
+        </table>
+    </div>
+</main>
+
+<script>
+  
+function dis(value) {
+  document.getElementById('result').value += value;
+}
+
+function clr() {
+  document.getElementById('result').value = '';
+}
+
+function solve() {
+  var p = document.getElementById('result').value;
+  if (p) {
+  document.getElementById('result').value = eval(p);
+  }
+}
+
+</script>
+
+{% endblock %}

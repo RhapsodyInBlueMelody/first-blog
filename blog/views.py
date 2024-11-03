@@ -6,6 +6,14 @@ from .forms import PostForm
 # Create your views here.
 
 
+def achievements(request):
+    return render(request, 'blog/achievements.html')
+
+
+def calculator(request):
+    return render(request, 'blog/calculator.html')
+
+
 def about_me(request):
     return render(request, 'blog/about_me.html')
 

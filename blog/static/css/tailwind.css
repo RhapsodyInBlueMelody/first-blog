@@ -4,3 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
+.calc-btn {
+    @apply w-full h-16 text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 p-4 hover:bg-white/30;
+}
