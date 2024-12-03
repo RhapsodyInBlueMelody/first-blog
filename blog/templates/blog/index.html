@@ -1,136 +1,289 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
-  <title>Curiousnews</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="{% static 'css/main.css' %}">
-<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script type="module" src="{% static 'js/anime.js' %}?v={{ STATIC_VERSION }}"></script>
-  <script type="module" src="{% static 'js/main.js' %}?v={{ STATIC_VERSION }}"></script>
-  <script src="https://unpkg.com/htmx.org@1.7.0"></script>
-  </head>
-<body class="min-h-screen bg-gradient-to-bl antialiased from-slate-900 from-10% via-purple-950 to-50% to-slate-900 " style="" >
-  <nav id="navbar" class="bg-white sticky top-0 z-40 w-full backdrop-filter backdrop-blur bg-opacity-30  border-b border-gray-200 firefox:bg-opacity-90">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"
+            rel="stylesheet"
+        />
+        <title>Curiousnews</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script
+            type="module"
+            src="{% static 'js/anime.js' %}?v={{ STATIC_VERSION }}"
+        ></script>
+        <script
+            type="module"
+            src="{% static 'js/main.js' %}?v={{ STATIC_VERSION }}"
+        ></script>
+        <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    </head>
+    <body
+        class="min-h-screen bg-gradient-to-bl antialiased from-slate-900 from-10% via-purple-950 to-50% to-slate-900"
+        style=""
+    >
+        <nav
+            id="navbar"
+            class="bg-white sticky top-0 z-40 w-full backdrop-filter backdrop-blur bg-opacity-30 border-b border-gray-200 firefox:bg-opacity-90"
+        >
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-16 items-center justify-between">
+                    <div
+                        class="absolute inset-y-0 left-0 flex items-center sm:hidden"
+                    >
+                        <!-- Mobile menu button-->
+                        <button
+                            type="button"
+                            class="mobile-menu-button relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu"
+                            aria-expanded="false"
+                        >
+                            <span class="absolute -inset-0.5"></span>
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+              Icon when menu is closed.
 
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
-        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu">
-          <span class="absolute -inset-0.5"></span>
-          <span class="sr-only">Open main menu</span>
-          <!--
-            Icon when menu is closed.
+              Menu open: "hidden", Menu closed: "block"
+            -->
+                            <svg
+                                class="block h-6 w-6 menu-icon"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                                data-slot="icon"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                />
+                            </svg>
+                            <!--
+              Icon when menu is open.
 
-            Menu open: "hidden", Menu closed: "block"
-          --> 
-          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <!--
-            Icon when menu is open.
+              Menu open: "block", Menu closed: "hidden"
+            -->
+                            <svg
+                                class="hidden h-6 w-6 close-icon"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                                data-slot="icon"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18 18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div
+                        class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+                    >
+                        <div class="flex flex-shrink-0 items-center">
+                            <h1 class="text-white font-bold">Curiousnews</h1>
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                            <div class="flex space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a
+                                    href="#"
+                                    hx-get="{% url 'post_list_container' %}"
+                                    hx-target="#contentContainer"
+                                    hx-trigger="click"
+                                    id="my-journal"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b"
+                                    >My Journal</a
+                                >
+                                <a
+                                    href="#"
+                                    hx-get="{% url 'achievements' %}"
+                                    hx-target="#contentContainer"
+                                    hx-trigger="click"
+                                    id="achievements"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b"
+                                    >Achievements</a
+                                >
+                                <a
+                                    href="#"
+                                    hx-get="{% url 'projects' %}"
+                                    hx-target="#contentContainer"
+                                    hx-trigger="click"
+                                    id="projects"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b"
+                                    >Projects</a
+                                >
+                                <a
+                                    href="#"
+                                    hx-get="{% url 'about_me' %}"
+                                    hx-target="#contentContainer"
+                                    hx-trigger="click"
+                                    id="aboutMe"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b"
+                                    >About Me</a
+                                >
+                                <a
+                                    href="#"
+                                    hx-get="{% url 'calculator' %}"
+                                    hx-target="#contentContainer"
+                                    hx-trigger="click"
+                                    id="calculator"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b"
+                                    >Calculator</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+                    >
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}">
+                            <button
+                                type="button"
+                                onclick=""
+                                class="top-menu relative rounded-full bg-white p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">Make New Post</span>
+                                <img
+                                    src="https://raw.githubusercontent.com/twbs/icons/main/icons/file-earmark-plus.svg"
+                                />
+                            </button>
+                        </a>
+                        {% endif %}
+                        <!-- Profile dropdown -->
+                        <div class="relative ml-3">
+                            <div>
+                                <div
+                                    type=""
+                                    class="relative flex rounded-full bg-gray-800 text-sm"
+                                    id="user-menu-button"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                >
+                                    <span class="absolute -inset-1.5"></span>
+                                    <span class="sr-only">Open user menu</span>
+                                    <img
+                                        class="h-8 w-8 rounded-full"
+                                        src="https://avatars.githubusercontent.com/u/147566170?v=4"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
 
-            Menu open: "block", Menu closed: "hidden"
-          -->
-          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
-          <h1 class="text-white font-bold">Curiousnews</h1>
-        </div>
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" hx-get="{% url 'post_list_container' %}" hx-target="#contentContainer" hx-trigger="click"  id="my-journal" class="rounded-md  px-3 py-2 text-sm font-medium text-gray-300 hover:border-b">My Journal</a>
-            <a href="#" hx-get="{% url 'achievements' %}" hx-target="#contentContainer" hx-trigger="click" id="achievements" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b" >Achievements</a>
-            <a href="#" hx-get="{% url 'projects' %}" hx-target="#contentContainer" hx-trigger="click" id="projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b">Projects</a>
-            <a href="#" hx-get="{% url 'about_me' %}" hx-target="#contentContainer" hx-trigger="click"  id="aboutMe" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b">About Me</a>
-            <a href="#" hx-get="{% url 'calculator' %}" hx-target="#contentContainer" hx-trigger="click"  id="calculator" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:border-b">Calculator</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          {% if user.is_authenticated %}
-        <a href="{% url 'post_new' %}" >
-        <button type="button" onclick="" class="top-menu relative rounded-full bg-white p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <span class="absolute -inset-1.5"></span>
-          <span class="sr-only">Make New Post</span>
-          <img src="https://raw.githubusercontent.com/twbs/icons/main/icons/file-earmark-plus.svg" >
-        </button>
-        </a>
-        {% endif %}
-        <!-- Profile dropdown -->
-        <div class="relative ml-3">
-          <div>
-            <div type="" class="relative flex rounded-full bg-gray-800 text-sm" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span class="absolute -inset-1.5"></span>
-              <span class="sr-only">Open user menu</span>
-              <img class="h-8 w-8 rounded-full" src="https://avatars.githubusercontent.com/u/147566170?v=4" alt="">
+                            <!--
+              Dropdown menu, show/hide based on menu state.
+
+              Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+            -->
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <!--
-            Dropdown menu, show/hide based on menu state.
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="mobile-menu sm:hidden hidden" id="mobile-menu">
+                <div class="space-y-1 px-2 pb-3 pt-2">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a
+                        href="#"
+                        hx-get="{% url 'post_list_container' %}"
+                        hx-target="#contentContainer"
+                        hx-trigger="click"
+                        id="my-journal"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-white"
+                        >My Journal</a
+                    >
+                    <a
+                        href="#"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        >Achievements</a
+                    >
+                    <a
+                        href="{% url 'projects' %}"
+                        hx-get="{% url 'projects' %}"
+                        hx-target="#contentContainer"
+                        hx-trigger="click"
+                        id="projects"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        >Projects</a
+                    >
+                    <a
+                        href="{% url 'about_me' %}"
+                        hx-get="{% url 'about_me' %}"
+                        hx-target="#contentContainer"
+                        hx-trigger="click"
+                        id="aboutMe"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        >About Me</a
+                    >
+                    <a
+                        href="{% url 'calculator' %}"
+                        hx-get="{% url 'calculator' %}"
+                        hx-target="#contentContainer"
+                        hx-trigger="click"
+                        id="calculator"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        >Calculator</a
+                    >
+                </div>
+            </div>
+        </nav>
+        <main class="min-h-72 flex items-center justify-center">
+            <div id="contentContainer" class="flex flex-col w-9/12 lg:w-full">
+                {% block content %} {% endblock %}
+            </div>
+        </main>
+        <script>
+            function handleNavbarDisplay() {
+                // Check if the current URL path matches the article page URL pattern
+                const currentPath = window.location.pathname;
+                const navbar = document.getElementById("navbar");
 
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden hidden" role="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" hx-get="{% url 'post_list_container' %}" hx-target="#contentContainer" hx-trigger="click"  id="my-journal" class="block rounded-md px-3 py-2 text-base font-medium text-white" >My Journal</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Achievements</a>
-      <a href="{% url 'projects' %}" hx-get="{% url 'projects' %}" hx-target="#contentContainer" hx-trigger="click" id="projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-      <a href="{% url 'about_me' %}"  hx-get="{% url 'about_me' %}" hx-target="#contentContainer" hx-trigger="click" id="aboutMe" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Me</a>
-      <a href="{% url 'calculator' %}"  hx-get="{% url 'calculator' %}" hx-target="#contentContainer" hx-trigger="click" id="calculator" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calculator</a>
-    </div>
-  </div>
-</nav>
-<main class="min-h-72 flex items-center justify-center">
-  <div id="contentContainer" class="flex flex-col w-9/12 lg:w-full">
-    {% block content %}
-    {% endblock %}
-  </div>
-</main>
-  <script>
-    function handleNavbarDisplay() {
-            // Check if the current URL path matches the article page URL pattern
-            const currentPath = window.location.pathname;
-            const navbar = document.getElementById('navbar');
-
-            // Assuming the article page URLs start with `/post/`, adjust as needed
-            if (currentPath.startsWith('/post/')) {
-                navbar.style.display = 'none'; // Hide navbar on article page
-            } else {
-                navbar.style.display = ''; // Show navbar on other pages
+                // Assuming the article page URLs start with `/post/`, adjust as needed
+                if (currentPath.startsWith("/post/")) {
+                    navbar.style.display = "none"; // Hide navbar on article page
+                } else {
+                    navbar.style.display = ""; // Show navbar on other pages
+                }
             }
-        }
 
-        // Run this function when the page loads
-        document.addEventListener('DOMContentLoaded', handleNavbarDisplay);
-  </script>
-  <script type="module" src="{% static 'js/main.js' %}"></script>
-</body>
+            // Run this function when the page loads
+            document.addEventListener("DOMContentLoaded", handleNavbarDisplay);
+
+            // Mobile menu functionality
+            document.addEventListener("DOMContentLoaded", function () {
+                const button = document.querySelector(".mobile-menu-button");
+                const menu = document.querySelector(".mobile-menu");
+                const menuIcon = document.querySelector(".menu-icon");
+                const closeIcon = document.querySelector(".close-icon");
+
+                button.addEventListener("click", () => {
+                    menu.classList.toggle("hidden");
+                    menuIcon.classList.toggle("hidden");
+                    closeIcon.classList.toggle("hidden");
+                });
+            });
+        </script>
+        <script type="module" src="{% static 'js/main.js' %}"></script>
+    </body>
 </html>
-

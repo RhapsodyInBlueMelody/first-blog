@@ -1,44 +1,43 @@
-
 {% load static %}
 
 
 {% block content %}
-<main class="mx-32 relative">
-    <div class="text-white my-12 font-extrabold">
-        <div class="my-name text-6xl">
+<main class="mx-4 sm:mx-8 md:mx-16 lg:mx-32 relative">
+    <div class="text-white my-8 sm:my-12 font-extrabold">
+        <div class="my-name text-4xl sm:text-6xl">
             Hello<span class="my-name">! </span><span class="my-name"> ^_^ </span>
         </div>
-        <div class="text-xl">
-            <span class="my-name">My Name</span> <span class="my-name">is</span> 
+        <div class="text-lg sm:text-xl">
+            <span class="my-name">My Name</span> <span class="my-name">is</span>
         </div>
-        <div class="text-6xl">
-            <span class="my-name">Syeddinul</span> 
-            <span class="my-name" id="nickname">Faiz</span> 
+        <div class="text-4xl sm:text-6xl">
+            <span class="my-name">Syeddinul</span>
+            <span class="my-name" id="nickname">Faiz</span>
             <span class="my-name"><span id="nickname">Can</span>iggia</span>
         </div>
     </div>
 
     <!-- Background image positioned at a lower layer -->
-    <div id="profilepic" class=" absolute invisible lg:visible inset-0 flex items-center left-1/2 bottom-1/4 justify-center -z-10 ">
-        <img class="h-120 w-120 rounded-full" src="https://avatars.githubusercontent.com/u/147566170?v=4" alt="">
+    <div id="profilepic" class="absolute invisible lg:visible inset-0 flex items-center left-1/2 bottom-1/4 justify-center -z-10">
+        <img class="h-80 w-80 lg:h-120 lg:w-120 rounded-full" src="https://avatars.githubusercontent.com/u/147566170?v=4" alt="">
     </div>
 
     <div class="contentArticle relative text-white w-full max-w-lg overflow-hidden">
         <div class="relative text-white shadow-lg rounded-lg backdrop-blur-lg bg-white/20 border border-white/20 text-left">
             <div class="shine-overlay absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0"></div>
-            <p class="text-xl italic m-6 font-medium">"Curiosity is the key to knowledge,<br> yet fear of the unknown often locks the door to truth."</p>
+            <p class="text-lg sm:text-xl italic m-4 sm:m-6 font-medium">"Curiosity is the key to knowledge,<br> yet fear of the unknown often locks the door to truth."</p>
         </div>
     </div>
 
     <div class="min-h-72 flex items-center justify-center" style="overflow: hidden;">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8 place-items-center">
-      <img id="swifticon" class="logo1 h-20 w-20" src="{% static "images/Python.png" %}"  alt="Python logo">
-      <img id="swifticon" class="logo2 h-20 w-20" src="{% static "images/c++.png" %}"  alt="C++ logo">
-      <img id="swifticon" class="logo3 h-20 w-20" src="{% static "images/JSLogo.png" %}"  alt="JavaScript Logo">
-      <img id="swifticon" class="logo4 h-20 w-20" src="{% static "images/html5.png" %}"  alt="HTML5 Logo">
-      <img id="swifticon" class="logo5 h-20 w-20" src="{% static "images/css.png" %}"  alt="CSS Logo">
-      <img id="swifticon" class="logo6 h-20 w-20" src="{% static "images/bslogo.png" %}"  alt="Bootstrap Logo">
-      <img id="swifticon" class="logo7 h-20 w-20" src="{% static "images/oracledatabase.png" %}" alt="Oracle Database Logo">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 sm:gap-8 place-items-center">
+      <img id="swifticon" class="logo1 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/Python.png" %}"  alt="Python logo">
+      <img id="swifticon" class="logo2 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/c++.png" %}"  alt="C++ logo">
+      <img id="swifticon" class="logo3 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/JSLogo.png" %}"  alt="JavaScript Logo">
+      <img id="swifticon" class="logo4 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/html5.png" %}"  alt="HTML5 Logo">
+      <img id="swifticon" class="logo5 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/css.png" %}"  alt="CSS Logo">
+      <img id="swifticon" class="logo6 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/bslogo.png" %}"  alt="Bootstrap Logo">
+      <img id="swifticon" class="logo7 h-16 w-16 sm:h-20 sm:w-20" src="{% static "images/oracledatabase.png" %}" alt="Oracle Database Logo">
       </div>
     </div>
 </main>
